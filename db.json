@@ -1,0 +1,122 @@
+{
+    "People": [
+        {
+            "id": 1, 
+            "name": "Caleb Siegel",
+            "profilePic": "https://scontent-lga3-2.xx.fbcdn.net/v/t39.30808-6/316667359_10160803085914994_669084290215477922_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=nHyv5Zq7yN8AX_2IPAs&_nc_ht=scontent-lga3-2.xx&oh=00_AfA1N5BkW2A2-ga7OokJI9tjKeT3d3r3BLyS8jouFuZnkg&oe=65AF810A",
+            "preferences": [
+                {
+                    "show": "Hamilton",
+                    "showTechnicalName": "Hamilton NYC",
+                    "maxPrice": 100
+                },
+                {
+                    "show": "Six",
+                    "showTechnicalName": "Six NYC",
+                    "maxPrice": 80
+                },
+                {
+                    "show": "The Wiz",
+                    "showTechnicalName": "The Wiz Nickname",
+                    "maxPrice": 45
+                }
+            ]
+        },
+        {
+            "id": 2, 
+            "name": "Tova Siegel",
+            "profilePic": "https://scontent-lga3-2.xx.fbcdn.net/v/t1.6435-9/37147498_10160593641935293_5696536036604116992_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=be3454&_nc_ohc=3bl7qDrWHAkAX_mKvMO&_nc_ht=scontent-lga3-2.xx&oh=00_AfABA2MptfDRc6qRjhOcvMgz24l7pRfIFjPWKH_HR0ht5A&oe=65D23D8B",
+            "preferences": [
+                {
+                    "show": "Hamilton",
+                    "showTechnicalName": "Hamilton NYC",
+                    "maxPrice": 150
+                },
+                {
+                    "show": "Six",
+                    "showTechnicalName": "Six NYC",
+                    "maxPrice": 55
+                },
+                {
+                    "show": "The Wiz",
+                    "showTechnicalName": "The Wiz Nickname",
+                    "maxPrice": 70
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Jones Winfield",
+            "profilePic": "https://scontent-lga3-2.xx.fbcdn.net/v/t1.18169-9/21231073_10213991225559775_2207797253148197150_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=be3454&_nc_ohc=eT-1wLrcxWoAX9Al_fi&_nc_ht=scontent-lga3-2.xx&oh=00_AfDnI7cm4WU_O9fSVfBVgdAh5bmiZZ2AFRRNn_Eo6fnZVw&oe=65D2266E",
+            "preferences": [
+                {
+                    "show": "Hamilton",
+                    "showTechnicalName": "Hamilton NYC",
+                    "maxPrice": 60
+                },
+                {
+                    "show": "Six",
+                    "showTechnicalName": "Six NYC",
+                    "maxPrice": 30
+                },
+                {
+                    "show": "The Wiz",
+                    "showTechnicalName": "The Wiz Nickname",
+                    "maxPrice": 20
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Lindsay Frucher",
+            "profilePic": "https://scontent-lga3-2.xx.fbcdn.net/v/t1.6435-9/52082388_10156467700113757_3469835483515715584_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=be3454&_nc_ohc=u8NtUnPAI2AAX8EH0lw&_nc_ht=scontent-lga3-2.xx&oh=00_AfCTi8bIW0vp2rSQP8qlj7zFmGWfKj65Gw_EtXZvl-C19g&oe=65D21B78",
+            "preferences": [
+                {
+                    "show": "Hamilton",
+                    "showTechnicalName": "Hamilton NYC",
+                    "maxPrice": 180
+                },
+                {
+                    "show": "Six",
+                    "showTechnicalName": "Six NYC",
+                    "maxPrice": 100
+                },
+                {
+                    "show": "The Wiz",
+                    "showTechnicalName": "The Wiz Nickname",
+                    "maxPrice": 100
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Elijah Silverman",
+            "profilePic": "https://scontent-lga3-1.xx.fbcdn.net/v/t1.6435-9/121667540_10219389639195706_7437152533376277264_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=be3454&_nc_ohc=Laa1_mQv1U4AX9uWbd3&_nc_ht=scontent-lga3-1.xx&oh=00_AfC8vXBK2EyWy_G66P_VCrSvZFVmdsydnDIYoYost6v3EQ&oe=65D23592",
+            "preferences": [
+                {
+                    "show": "Hamilton",
+                    "showTechnicalName": "Hamilton NYC",
+                    "maxPrice": 90
+                },
+                {
+                    "show": "Six",
+                    "showTechnicalName": "Six NYC",
+                    "maxPrice": 65
+                },
+                {
+                    "show": "The Wiz",
+                    "showTechnicalName": "The Wiz Nickname",
+                    "maxPrice": 40
+                }
+            ]
+        }
+    ],
+    "prices": [
+        {
+            "id": 1,
+            "Hamilton": 120,
+            "Six": 71,
+            "The Wiz": 33
+        }
+    ]
+}
