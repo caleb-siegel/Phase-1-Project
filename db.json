@@ -1,5 +1,5 @@
 {
-    "People": [
+    "people": [
         {
             "id": 1, 
             "name": "Caleb Siegel",
@@ -17,9 +17,10 @@
                 },
                 {
                     "show": "The Wiz",
-                    "showTechnicalName": "The Wiz Nickname",
-                    "maxPrice": 45
+                    "showTechnicalName": "The Wiz NYC",
+                    "maxPrice": 90
                 }
+
             ]
         },
         {
@@ -114,9 +115,18 @@
     "prices": [
         {
             "id": 1,
-            "Hamilton": 120,
-            "Six": 71,
-            "The Wiz": 33
+            "name": "Hamilton",
+            "price": 120
+        },
+        {
+            "id": 2,
+            "name": "Six",
+            "price": 71
+        },
+        {
+            "id": 3,
+            "name": "The Wiz",
+            "price": 33
         }
     ]
 }
