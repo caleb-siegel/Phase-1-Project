@@ -1,3 +1,15 @@
+html {
+    background-color: mediumaquamarine;
+    margin: auto;
+    width: 70%;
+    color: white
+}
+
 img {
-    height: 150px;
+    height: 200px;
+    text-align: center
   }
+
+button {
+    border-radius: 6px;
+}
