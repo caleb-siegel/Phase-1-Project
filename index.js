@@ -139,13 +139,14 @@ function populateInfo (name, greeting) {
                                 let p = document.createElement(`p`)
                                 p.textContent = `${showName}: $${price.price}. There are ${price.seatsAmount} seats available at this price in ${price.seatLocation}.`
                                 div.append(p)
-                                } else {
-                                    let p = document.createElement(`p`)
-                                    p.textContent = `Unfortunately, there are no tickets for any show at your desired price. Please come back later.`
-                                    div.append(p)        
                                 }
                             }
                         })
+                        if (document.querySelector(`#main-image`).nextElementSibling === null) {
+                            let p = document.createElement(`p`)
+                            p.textContent = `Unfortunately, there are no tickets for any show at your desired price. Please come back later.`
+                            div.append(p)
+                        }
                     })
                 })
             }
