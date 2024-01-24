@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Caleb Siegel",
-      "profilePic": "https://scontent-lga3-2.xx.fbcdn.net/v/t39.30808-6/316667359_10160803085914994_669084290215477922_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=nHyv5Zq7yN8AX_2IPAs&_nc_ht=scontent-lga3-2.xx&oh=00_AfA1N5BkW2A2-ga7OokJI9tjKeT3d3r3BLyS8jouFuZnkg&oe=65AF810A",
+      "profilePic": "https://scontent-lga3-2.xx.fbcdn.net/v/t39.30808-6/316667359_10160803085914994_669084290215477922_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=fRpAjAPBy44AX_NF_eO&_nc_ht=scontent-lga3-2.xx&oh=00_AfBH9JBxFv5XRiXPQyTOE75_hfzylkLgluzGBpAORxl4Vw&oe=65B56FCA",
       "preferences": [
         {
           "show": "Hamilton",
@@ -129,7 +129,7 @@
     {
       "id": 3,
       "name": "The Wiz",
-      "price": 33,
+      "price": 51,
       "seatsAmount": 10,
       "seatLocation": "Balc Row A"
     }

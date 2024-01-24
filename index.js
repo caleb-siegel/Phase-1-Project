@@ -2,13 +2,14 @@
 const returningUserButton = document.querySelector(`#returning-user-button`)
 const buttonDiv = document.querySelector(`#button-div`)
 const div = document.querySelector(`#info`)
+const moreShowsDiv = document.querySelector(`#more-shows-button`)
 returningUserButton.addEventListener(`click`, (event) => {
     event.preventDefault()
     buttonDiv.innerHTML = ``
-    let form = document.createElement('form')
-    let label = document.createElement(`label`)
-    let inputName = document.createElement(`input`)
-    let inputButton = document.createElement(`input`)
+    const form = document.createElement('form')
+    const label = document.createElement(`label`)
+    const inputName = document.createElement(`input`)
+    const inputButton = document.createElement(`input`)
     form.id = `name-input`
     inputName.type = `text`
     inputName.placeholder = `Name`
@@ -35,14 +36,14 @@ const newUserButton = document.querySelector(`#new-user-button`)
 newUserButton.addEventListener(`click`, (event) => {
     event.preventDefault()
     buttonDiv.innerHTML = ``;
-    let form = document.createElement('form')
-    let label = document.createElement(`label`)
-    let inputName = document.createElement(`input`)
-    let inputPic = document.createElement(`input`)
-    let inputShow = document.createElement(`input`)
-    let inputPrice = document.createElement(`input`)
-    let inputButtonNewUser = document.createElement(`input`)
-    let br = document.createElement(`br`)
+    const form = document.createElement('form')
+    const label = document.createElement(`label`)
+    const inputName = document.createElement(`input`)
+    const inputPic = document.createElement(`input`)
+    const inputShow = document.createElement(`input`)
+    const inputPrice = document.createElement(`input`)
+    const inputButtonNewUser = document.createElement(`input`)
+    const br = document.createElement(`br`)
     form.id = `name-input`
     inputName.type = `text`
     inputPic.type = `text`
@@ -107,10 +108,11 @@ newUserButton.addEventListener(`click`, (event) => {
 function populateInfo (name, greeting) {
     // remove everything to make clean slate
     div.innerHTML = ``;
+    moreShowsDiv.innerHTML = ``;
     // add person's name
     const personName = name
     const firstName = personName.split(` `)[0]
-    let h1 = document.createElement(`h1`)
+    const h1 = document.createElement(`h1`)
     h1.textContent = `${greeting}, ${firstName}!`
     div.append(h1)
     // get person's image and show preferences
@@ -120,15 +122,15 @@ function populateInfo (name, greeting) {
         people.forEach(person => {
             if (personName === person.name) {
                 //add person's image
-                let image = document.createElement(`img`)
+                const image = document.createElement(`img`)
                 image.src = person.profilePic
                 image.id = `main-image`
                 div.append(image)
                 
                 //display person's show preferences
                 person.preferences.forEach(show => {
-                    let showName = show.show
-                    let maxPrice = show.maxPrice
+                    const showName = show.show
+                    const maxPrice = show.maxPrice
 
                     fetch(`http://localhost:3000/prices`)
                     .then(response => response.json())
@@ -136,17 +138,65 @@ function populateInfo (name, greeting) {
                         prices.forEach(price => {
                             if (showName === price.name) {
                                 if (price.price < maxPrice) {
-                                let p = document.createElement(`p`)
+                                const p = document.createElement(`p`)
                                 p.textContent = `${showName}: $${price.price}. There are ${price.seatsAmount} seats available at this price in ${price.seatLocation}.`
                                 div.append(p)
                                 }
                             }
                         })
                         if (document.querySelector(`#main-image`).nextElementSibling === null) {
-                            let p = document.createElement(`p`)
+                            const p = document.createElement(`p`)
                             p.textContent = `Unfortunately, there are no tickets for any show at your desired price. Please come back later.`
                             div.append(p)
                         }
+                    })
+                })
+                const addShowsButton = document.createElement(`button`)
+                addShowsButton.textContent = `Add Another Show`
+                moreShowsDiv.append(addShowsButton)
+                addShowsButton.addEventListener(`click`, (event) => {
+                    event.preventDefault()
+                    addShowsButton.remove()
+                    const newShowsForm = document.createElement('form')
+                    const newShowsLabel = document.createElement(`label`)
+                    const inputNewShow = document.createElement(`input`)
+                    const inputNewPrice = document.createElement(`input`)
+                    const inputButtonNewShow = document.createElement(`input`)
+                    newShowsForm.id = `new-show`
+                    inputNewShow.type = `text`
+                    inputNewPrice.type = `text`
+                    inputNewShow.placeholder = `Name of Show`
+                    inputNewPrice.placeholder = `Price`
+                    inputButtonNewShow.type = `submit`
+                    inputButtonNewShow.value = `Submit New Show`
+                    moreShowsDiv.append(newShowsForm)
+                    newShowsForm.append(newShowsLabel)
+                    newShowsLabel.append(inputNewShow)
+                    newShowsLabel.append(inputNewPrice)
+                    newShowsLabel.append(inputButtonNewShow)
+
+                    newShowsForm.addEventListener(`submit`, (event) => {
+                        event.preventDefault();
+                        // fetch(`http://localhost:3000/people`, {
+                        //     method: `POST`,
+                        //     headers: {
+                        //         "Content-Type": "application/json",
+                        //         "Accept": "application/json"
+                        //     },
+                        //     body: JSON.stringify({
+                        //         preferences: [
+                        //             {
+                        //                 show: inputShow.value,
+                        //                 showTechnicalName: ``,
+                        //                 maxPrice: parseInt(inputPrice.value, 10)
+                        //             }
+                        //         ]
+                        //     })
+                        // })
+                        // .then(response => response.json())
+                        // .then(newShow => {
+                        //     populateInfo(personName, `Thanks for joining`)
+                        // })
                     })
                 })
             }
