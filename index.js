@@ -1,3 +1,15 @@
+// Show initial data
+const paragraphInfoDiv = document.querySelector(`#paragraphs`)
+fetch(`http://localhost:3000/prices`)
+    .then(response => response.json())
+    .then(prices => {
+        prices.forEach(price => {
+            const p = document.createElement(`p`)
+            p.textContent = `${price.name}: $${price.price}. There are ${price.seatsAmount} seats available at this price in ${price.seatLocation}.`
+            paragraphInfoDiv.append(p)
+            })
+        })
+
 //allow returning user to enter name and see curated info
 const returningUserButton = document.querySelector(`#returning-user-button`)
 const buttonDiv = document.querySelector(`#button-div`)
@@ -91,7 +103,7 @@ newUserButton.addEventListener(`click`, (event) => {
         })
     })
 
-    // Allow user to increase or decrese price preference with arrow keys
+    // Allow user to increase or decrease price preference with arrow keys
     inputPrice.addEventListener(`keydown`, (event) => {
         if (event.key === `ArrowUp`) {
             const currentPrice = parseInt(inputPrice.value, 10);
@@ -128,32 +140,38 @@ function populateInfo (name, greeting) {
                 image.src = person.profilePic
                 image.id = `main-image`
                 div.append(image)
+                const paragraphInfoDiv = document.createElement(`div`)
+                paragraphInfoDiv.id = `paragraph-info`
+                div.append(paragraphInfoDiv)
                 
                 //display person's show preferences
-                person.preferences.forEach(show => {
-                    const showName = show.show
-                    const maxPrice = show.maxPrice
-
-                    fetch(`http://localhost:3000/prices`)
-                    .then(response => response.json())
-                    .then(prices => {
-                        prices.forEach(price => {
-                            if (showName === price.name) {
-                                if (price.price < maxPrice) {
-                                const p = document.createElement(`p`)
-                                p.textContent = `${showName}: $${price.price}. There are ${price.seatsAmount} seats available at this price in ${price.seatLocation}.`
-                                div.append(p)
-                                }
-                            }
-                        })
-                        // if no tickets available at desired price, display "unfortunately" message
-                        if (document.querySelector(`#main-image`).nextElementSibling === null) {
-                            const p = document.createElement(`p`)
-                            p.textContent = `Unfortunately, there are no tickets for any show at your desired price. Please come back later.`
-                            div.append(p)
+                const showPromises = person.preferences.map(show => {
+                    const showName = show.show;
+                    const maxPrice = show.maxPrice;
+                
+                    return fetch(`http://localhost:3000/prices`)
+                        .then(response => response.json())
+                        .then(prices => {
+                            const matchingPrices = prices.filter(price => price.name === showName && price.price < maxPrice);
+                
+                            matchingPrices.forEach(price => {
+                                const p = document.createElement(`p`);
+                                p.textContent = `${showName}: $${price.price}. There are ${price.seatsAmount} seats available at this price in ${price.seatLocation}.`;
+                                paragraphInfoDiv.append(p);
+                            });
+                        });
+                });
+                
+                Promise.all(showPromises)
+                    .then(() => {
+                        // Check if no tickets are available at the desired price
+                        if (paragraphInfoDiv.childElementCount === 0) {
+                            const p = document.createElement('p');
+                            p.textContent = `Unfortunately, there are no tickets for any show at your desired price. Please come back later.`;
+                            div.append(p);
                         }
                     })
-                })
+                
                 // Display add show button
                 const addShowsButton = document.createElement(`button`)
                 addShowsButton.textContent = `Add Another Show`
@@ -178,7 +196,8 @@ function populateInfo (name, greeting) {
                     newShowsLabel.append(inputNewShow)
                     newShowsLabel.append(inputNewPrice)
                     newShowsLabel.append(inputButtonNewShow)
-
+                    
+                    // allow user to add show preference to their preferences
                     newShowsForm.addEventListener(`submit`, (event) => {
                         event.preventDefault();
                         addShow();
@@ -209,9 +228,6 @@ function populateInfo (name, greeting) {
         });
     })
 }
-
-// Add Show
-
 
 // // WRITE STUBHUB API CALL
 // const apiKey = `8s4RENhd`;

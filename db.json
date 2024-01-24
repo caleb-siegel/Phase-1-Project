@@ -19,6 +19,11 @@
           "show": "The Wiz",
           "showTechnicalName": "The Wiz NYC",
           "maxPrice": 90
+        },
+        {
+          "show": "&Juliet",
+          "showTechnicalName": "",
+          "maxPrice": 80
         }
       ]
     },
@@ -74,7 +79,7 @@
         {
           "show": "Hamilton",
           "showTechnicalName": "Hamilton NYC",
-          "maxPrice": 180
+          "maxPrice": 50
         },
         {
           "show": "Six",
@@ -101,12 +106,12 @@
         {
           "show": "Six",
           "showTechnicalName": "Six NYC",
-          "maxPrice": 65
+          "maxPrice": 90
         },
         {
           "show": "The Wiz",
-          "showTechnicalName": "The Wiz Nickname",
-          "maxPrice": 40
+          "showTechnicalName": "",
+          "maxPrice": 60
         }
       ]
     },
@@ -129,6 +134,35 @@
           "show": "The Wiz",
           "showTechnicalName": "",
           "maxPrice": 110
+        }
+      ]
+    },
+    {
+      "id": "6708",
+      "name": "John",
+      "profilePic": "",
+      "preferences": [
+        {
+          "show": "Hamilton",
+          "showTechnicalName": "",
+          "maxPrice": 100
+        },
+        {
+          "show": "Six",
+          "showTechnicalName": "",
+          "maxPrice": 1020
+        }
+      ]
+    },
+    {
+      "id": "abcf",
+      "name": "Alfred",
+      "profilePic": "",
+      "preferences": [
+        {
+          "show": "Hamilton",
+          "showTechnicalName": "",
+          "maxPrice": 40
         }
       ]
     }
@@ -154,6 +188,13 @@
       "price": 51,
       "seatsAmount": 10,
       "seatLocation": "Balc Row A"
+    },
+    {
+      "id": 4,
+      "name": "&Juliet",
+      "price": 73,
+      "seatsAmount": 3,
+      "seatLocation": "Orch Row W"
     }
   ]
 }
