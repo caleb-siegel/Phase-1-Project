@@ -153,11 +153,23 @@ function populateInfo (name, greeting) {
                         .then(response => response.json())
                         .then(prices => {
                             const matchingPrices = prices.filter(price => price.name === showName && price.price < maxPrice);
-                
                             matchingPrices.forEach(price => {
                                 const p = document.createElement(`p`);
                                 p.textContent = `${showName}: $${price.price}. There are ${price.seatsAmount} seats available at this price in ${price.seatLocation}.`;
                                 paragraphInfoDiv.append(p);
+                                const newImage = document.createElement(`img`)
+                                
+                                // Add picture of show on hover
+                                p.addEventListener(`mouseenter`, event => {
+                                    newImage.src = price.picture
+                                    newImage.classList.add(`shows`)
+                                    paragraphInfoDiv.append(newImage)
+                                })
+                                
+                                // Remove picture of show when no longer hovering
+                                p.addEventListener(`mouseleave`, event => {
+                                    newImage.remove()
+                                })
                             });
                         });
                 });

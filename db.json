@@ -90,6 +90,11 @@
           "show": "The Wiz",
           "showTechnicalName": "The Wiz Nickname",
           "maxPrice": 100
+        },
+        {
+          "show": "&Juliet",
+          "showTechnicalName": "",
+          "maxPrice": 100
         }
       ]
     },
@@ -136,35 +141,6 @@
           "maxPrice": 110
         }
       ]
-    },
-    {
-      "id": "6708",
-      "name": "John",
-      "profilePic": "",
-      "preferences": [
-        {
-          "show": "Hamilton",
-          "showTechnicalName": "",
-          "maxPrice": 100
-        },
-        {
-          "show": "Six",
-          "showTechnicalName": "",
-          "maxPrice": 1020
-        }
-      ]
-    },
-    {
-      "id": "abcf",
-      "name": "Alfred",
-      "profilePic": "",
-      "preferences": [
-        {
-          "show": "Hamilton",
-          "showTechnicalName": "",
-          "maxPrice": 40
-        }
-      ]
     }
   ],
   "prices": [
@@ -173,28 +149,32 @@
       "name": "Hamilton",
       "price": 96,
       "seatsAmount": 2,
-      "seatLocation": "Mezz Row X"
+      "seatLocation": "Mezz Row X",
+      "picture": "https://www.usatoday.com/gcdn/-mm-/602029d785ff5df8c40399ae7a1a1e9914855ae7/c=1637-1180-4063-3606/local/-/media/2016/03/28/USATODAY/USATODAY/635947804098414743-XXX-IMG-HAMILTON-CREDIT-JOAN-1-1-QNCK5FRG-78029476.JPG"
     },
     {
       "id": 2,
       "name": "Six",
       "price": 71,
       "seatsAmount": 6,
-      "seatLocation": "Orch Row C"
+      "seatLocation": "Orch Row C",
+      "picture": "https://cdn.apollo.audio/one/media/63bd/3d8c/525b/8c04/f4cf/148e/six-2023-west-end-cast.jpg?quality=80&format=jpg&crop=247,196,839,1250&resize=crop"
     },
     {
       "id": 3,
       "name": "The Wiz",
       "price": 51,
       "seatsAmount": 10,
-      "seatLocation": "Balc Row A"
+      "seatLocation": "Balc Row A",
+      "picture": "https://m.media-amazon.com/images/I/81QnXRm7JWL._AC_UF894,1000_QL80_.jpg"
     },
     {
       "id": 4,
       "name": "&Juliet",
       "price": 73,
       "seatsAmount": 3,
-      "seatLocation": "Orch Row W"
+      "seatLocation": "Orch Row W",
+      "picture": "https://i.guim.co.uk/img/media/88ef79d9f35d84238fa321e8ff1856d4093fdddf/0_0_4361_2619/master/4361.jpg?width=1200&height=900&quality=85&auto=format&fit=crop&s=744c2f112d169f370312c866b02651d4"
     }
   ]
 }

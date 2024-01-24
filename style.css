@@ -14,3 +14,7 @@ img {
 button {
     border-radius: 6px;
 }
+
+.shows {
+    height: 300px;
+}
