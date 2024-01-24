@@ -1,7 +1,7 @@
 {
   "people": [
     {
-      "id": 1,
+      "id": "1e0g",
       "name": "Caleb Siegel",
       "profilePic": "https://scontent-lga3-2.xx.fbcdn.net/v/t39.30808-6/316667359_10160803085914994_669084290215477922_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=fRpAjAPBy44AX_NF_eO&_nc_ht=scontent-lga3-2.xx&oh=00_AfBH9JBxFv5XRiXPQyTOE75_hfzylkLgluzGBpAORxl4Vw&oe=65B56FCA",
       "preferences": [
@@ -23,7 +23,7 @@
       ]
     },
     {
-      "id": 2,
+      "id": "1e0f",
       "name": "Tova Siegel",
       "profilePic": "https://scontent-lga3-2.xx.fbcdn.net/v/t1.6435-9/37147498_10160593641935293_5696536036604116992_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=be3454&_nc_ohc=3bl7qDrWHAkAX_mKvMO&_nc_ht=scontent-lga3-2.xx&oh=00_AfABA2MptfDRc6qRjhOcvMgz24l7pRfIFjPWKH_HR0ht5A&oe=65D23D8B",
       "preferences": [
@@ -39,13 +39,13 @@
         },
         {
           "show": "The Wiz",
-          "showTechnicalName": "The Wiz Nickname",
-          "maxPrice": 70
+          "showTechnicalName": "",
+          "maxPrice": 86
         }
       ]
     },
     {
-      "id": 3,
+      "id": "1e0e",
       "name": "Jones Winfield",
       "profilePic": "https://scontent-lga3-2.xx.fbcdn.net/v/t1.18169-9/21231073_10213991225559775_2207797253148197150_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=be3454&_nc_ohc=eT-1wLrcxWoAX9Al_fi&_nc_ht=scontent-lga3-2.xx&oh=00_AfDnI7cm4WU_O9fSVfBVgdAh5bmiZZ2AFRRNn_Eo6fnZVw&oe=65D2266E",
       "preferences": [
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": "1e0d",
       "name": "Lindsay Frucher",
       "profilePic": "https://scontent-lga3-2.xx.fbcdn.net/v/t1.6435-9/52082388_10156467700113757_3469835483515715584_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=be3454&_nc_ohc=u8NtUnPAI2AAX8EH0lw&_nc_ht=scontent-lga3-2.xx&oh=00_AfCTi8bIW0vp2rSQP8qlj7zFmGWfKj65Gw_EtXZvl-C19g&oe=65D21B78",
       "preferences": [
@@ -89,7 +89,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": "1e0c",
       "name": "Elijah Silverman",
       "profilePic": "https://scontent-lga3-1.xx.fbcdn.net/v/t1.6435-9/121667540_10219389639195706_7437152533376277264_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=be3454&_nc_ohc=Laa1_mQv1U4AX9uWbd3&_nc_ht=scontent-lga3-1.xx&oh=00_AfC8vXBK2EyWy_G66P_VCrSvZFVmdsydnDIYoYost6v3EQ&oe=65D23592",
       "preferences": [
@@ -107,6 +107,28 @@
           "show": "The Wiz",
           "showTechnicalName": "The Wiz Nickname",
           "maxPrice": 40
+        }
+      ]
+    },
+    {
+      "id": "1e0b",
+      "name": "Avi Kozlowski",
+      "profilePic": "https://scontent-lga3-1.xx.fbcdn.net/v/t39.30808-6/280486442_10166614657785122_3333118616915282368_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=efb6e6&_nc_ohc=EvlQ75mZB-UAX_BSjKW&_nc_ht=scontent-lga3-1.xx&oh=00_AfAFhdHXn2lMZ3cCwGDf4vaxRIUnq8ioMjZpNF0LQWXM0w&oe=65B621DA",
+      "preferences": [
+        {
+          "show": "Hamilton",
+          "showTechnicalName": "",
+          "maxPrice": 120
+        },
+        {
+          "show": "Six",
+          "showTechnicalName": "",
+          "maxPrice": 87
+        },
+        {
+          "show": "The Wiz",
+          "showTechnicalName": "",
+          "maxPrice": 110
         }
       ]
     }

@@ -121,6 +121,8 @@ function populateInfo (name, greeting) {
     .then(people => {
         people.forEach(person => {
             if (personName === person.name) {
+                const id = person.id
+                const preferences = person.preferences
                 //add person's image
                 const image = document.createElement(`img`)
                 image.src = person.profilePic
@@ -144,6 +146,7 @@ function populateInfo (name, greeting) {
                                 }
                             }
                         })
+                        // if no tickets available at desired price, display "unfortunately" message
                         if (document.querySelector(`#main-image`).nextElementSibling === null) {
                             const p = document.createElement(`p`)
                             p.textContent = `Unfortunately, there are no tickets for any show at your desired price. Please come back later.`
@@ -151,6 +154,7 @@ function populateInfo (name, greeting) {
                         }
                     })
                 })
+                // Display add show button
                 const addShowsButton = document.createElement(`button`)
                 addShowsButton.textContent = `Add Another Show`
                 moreShowsDiv.append(addShowsButton)
@@ -177,29 +181,71 @@ function populateInfo (name, greeting) {
 
                     newShowsForm.addEventListener(`submit`, (event) => {
                         event.preventDefault();
-                        // fetch(`http://localhost:3000/people`, {
-                        //     method: `POST`,
-                        //     headers: {
-                        //         "Content-Type": "application/json",
-                        //         "Accept": "application/json"
-                        //     },
-                        //     body: JSON.stringify({
-                        //         preferences: [
-                        //             {
-                        //                 show: inputShow.value,
-                        //                 showTechnicalName: ``,
-                        //                 maxPrice: parseInt(inputPrice.value, 10)
-                        //             }
-                        //         ]
-                        //     })
-                        // })
-                        // .then(response => response.json())
-                        // .then(newShow => {
-                        //     populateInfo(personName, `Thanks for joining`)
-                        // })
+                        addShow();
+                        function addShow () {
+                            
+                            fetch(`http://localhost:3000/people/${id}`, {
+                                method: `PATCH`,
+                                headers: {},
+                                body: JSON.stringify({
+                                    preferences: [
+                                        ...preferences,
+                                        {
+                                        show: inputNewShow.value,
+                                        showTechnicalName: ``,
+                                        maxPrice: parseInt(inputNewPrice.value, 10)
+                                        }
+                                    ]
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(show => {
+                                populateInfo(personName, `Welcome Back`)
+                            })
+                        }
                     })
                 })
             }
         });
     })
 }
+
+// Add Show
+
+
+// // WRITE STUBHUB API CALL
+// const apiKey = `8s4RENhd`;
+// const applicationKey = `5saQ1M1lbC`
+// const apiUrl = 'https://sandbox.api.stubhub.net/catalog/events/152150271';
+
+// // Example endpoint, replace with the actual endpoint you want to query
+// const endpoint = 'example/endpoint';
+
+// // Example parameters, replace with the actual parameters required by the endpoint
+// const queryParams = {
+//   param1: 'value1',
+//   param2: 'value2',
+// };
+
+// // Construct the URL with parameters
+// const url = new URL(apiUrl + endpoint);
+// url.search = new URLSearchParams(queryParams);
+
+// // Make the API request
+// fetch(apiUrl, {
+//   method: 'GET',
+//   headers: {
+//     'Authorization': `Bearer ${apiKey}`,
+//     // 'App-Token': applicationKey,
+//     'Accept': 'application/json',
+//   },
+// })
+//   .then(response => response.json())
+//   .then(data => {
+//     // Handle the data from the API response
+//     console.log('API Response:', data);
+//   })
+//   .catch(error => {
+//     // Handle errors
+//     console.error('API Request Error:', error);
+//   });
