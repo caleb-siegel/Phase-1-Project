@@ -1,14 +1,29 @@
 // Show initial data
 const paragraphInfoDiv = document.querySelector(`#paragraphs`)
 fetch(`http://localhost:3000/prices`)
+.then(response => response.json())
+.then(prices => {
+    prices.forEach(price => {
+        const p = document.createElement(`p`);
+        p.textContent = `${price.name}: $${price.price}. There are ${price.seatsAmount} seats available at this price in ${price.seatLocation}.`;
+        paragraphInfoDiv.append(p);
+    });
+});
+
+// add dropdown for the shows
+function addDropdown () {
+    const select = document.createElement(`select`);
+    label.append(select)
+    fetch(`http://localhost:3000/prices`)
     .then(response => response.json())
-    .then(prices => {
-        prices.forEach(price => {
-            const p = document.createElement(`p`);
-            p.textContent = `${price.name}: $${price.price}. There are ${price.seatsAmount} seats available at this price in ${price.seatLocation}.`;
-            paragraphInfoDiv.append(p);
-            });
-        });
+    .then(shows => {
+        shows.forEach(show => {
+            const option = document.createElement(`option`);
+            option.textContent = show.name;
+            select.append(option);
+        })
+    })
+}
 
 //allow returning user to enter name and see curated info
 const returningUserButton = document.querySelector(`#returning-user-button`);
@@ -48,33 +63,49 @@ const newUserButton = document.querySelector(`#new-user-button`);
 newUserButton.addEventListener(`click`, (event) => {
     event.preventDefault();
     buttonDiv.innerHTML = ``;
+
     const form = document.createElement('form');
-    const label = document.createElement(`label`);
-    const inputName = document.createElement(`input`);
-    const inputPic = document.createElement(`input`);
-    const inputShow = document.createElement(`input`);
-    const inputPrice = document.createElement(`input`);
-    const inputButtonNewUser = document.createElement(`input`);
-    const br = document.createElement(`br`);
     form.id = `name-input`;
+    buttonDiv.append(form);
+
+    const label = document.createElement(`label`);
+    form.append(label);
+
+    const inputName = document.createElement(`input`);
     inputName.type = `text`;
-    inputPic.type = `text`;
-    inputShow.type = `text`;
-    inputPrice.type = `text`;
     inputName.placeholder = `Name`;
+    label.append(inputName);
+
+    const inputPic = document.createElement(`input`);
+    inputPic.type = `text`;
     inputPic.placeholder = `Profile Pic URL`;
-    inputShow.placeholder = `Name of Show`;
+    label.append(inputPic);
+
+    const select = document.createElement(`select`);
+    label.append(select);
+    fetch(`http://localhost:3000/prices`)
+    .then(response => response.json())
+    .then(shows => {
+        shows.forEach(show => {
+            const option = document.createElement(`option`);
+            option.textContent = show.name;
+            select.append(option);
+        });
+    });
+
+    const inputPrice = document.createElement(`input`);
+    inputPrice.type = `text`;
     inputPrice.placeholder = `Price`;
+    label.append(inputPrice);
+
+    const inputButtonNewUser = document.createElement(`input`);
     inputButtonNewUser.type = `submit`;
     inputButtonNewUser.value = `Submit`;
-    buttonDiv.append(form);
-    form.append(label);
-    label.append(inputName);
-    label.append(inputPic);
-    label.append(inputShow);
-    label.append(inputPrice);
-    label.append(br);
     label.append(inputButtonNewUser);
+
+    const br = document.createElement(`br`);
+    label.append(br);
+
 
     // POST submitted data
     form.addEventListener(`submit`, (event) => {
@@ -191,22 +222,38 @@ function populateInfo (name, greeting) {
                 addShowsButton.addEventListener(`click`, (event) => {
                     event.preventDefault();
                     addShowsButton.remove();
+
                     const newShowsForm = document.createElement('form');
-                    const newShowsLabel = document.createElement(`label`);
-                    const inputNewShow = document.createElement(`input`);
-                    const inputNewPrice = document.createElement(`input`);
-                    const inputButtonNewShow = document.createElement(`input`);
                     newShowsForm.id = `new-show`;
-                    inputNewShow.type = `text`;
+                    moreShowsDiv.append(newShowsForm);
+
+                    const newShowsLabel = document.createElement(`label`);
+                    newShowsForm.append(newShowsLabel);
+                    
+                    // const inputNewShow = document.createElement(`input`);
+                    // inputNewShow.type = `text`;
+                    // inputNewShow.placeholder = `Name of Show`;
+                    // newShowsLabel.append(inputNewShow);
+                    const select = document.createElement(`select`);
+                    newShowsLabel.append(select);
+                    fetch(`http://localhost:3000/prices`)
+                    .then(response => response.json())
+                    .then(shows => {
+                        shows.forEach(show => {
+                            const option = document.createElement(`option`);
+                            option.textContent = show.name;
+                            select.append(option);
+                        });
+                    });                
+
+                    const inputNewPrice = document.createElement(`input`);
                     inputNewPrice.type = `text`;
-                    inputNewShow.placeholder = `Name of Show`;
                     inputNewPrice.placeholder = `Price`;
+                    newShowsLabel.append(inputNewPrice);
+
+                    const inputButtonNewShow = document.createElement(`input`);
                     inputButtonNewShow.type = `submit`;
                     inputButtonNewShow.value = `Submit New Show`;
-                    moreShowsDiv.append(newShowsForm);
-                    newShowsForm.append(newShowsLabel);
-                    newShowsLabel.append(inputNewShow);
-                    newShowsLabel.append(inputNewPrice);
                     newShowsLabel.append(inputButtonNewShow);
                     
                     // allow user to add show preference to their preferences
