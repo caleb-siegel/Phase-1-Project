@@ -4,81 +4,81 @@ fetch(`http://localhost:3000/prices`)
     .then(response => response.json())
     .then(prices => {
         prices.forEach(price => {
-            const p = document.createElement(`p`)
-            p.textContent = `${price.name}: $${price.price}. There are ${price.seatsAmount} seats available at this price in ${price.seatLocation}.`
-            paragraphInfoDiv.append(p)
-            })
-        })
+            const p = document.createElement(`p`);
+            p.textContent = `${price.name}: $${price.price}. There are ${price.seatsAmount} seats available at this price in ${price.seatLocation}.`;
+            paragraphInfoDiv.append(p);
+            });
+        });
 
 //allow returning user to enter name and see curated info
-const returningUserButton = document.querySelector(`#returning-user-button`)
-const buttonDiv = document.querySelector(`#button-div`)
-const div = document.querySelector(`#info`)
-const moreShowsDiv = document.querySelector(`#more-shows-button`)
+const returningUserButton = document.querySelector(`#returning-user-button`);
+const buttonDiv = document.querySelector(`#button-div`);
+const div = document.querySelector(`#info`);
+const moreShowsDiv = document.querySelector(`#more-shows-button`);
 returningUserButton.addEventListener(`click`, (event) => {
-    event.preventDefault()
-    buttonDiv.innerHTML = ``
-    const form = document.createElement('form')
-    const label = document.createElement(`label`)
-    const inputName = document.createElement(`input`)
-    const inputButton = document.createElement(`input`)
-    form.id = `name-input`
-    inputName.type = `text`
-    inputName.placeholder = `Name`
-    inputButton.type = `submit`
-    inputButton.value = `Submit`
-    buttonDiv.append(form)
-    form.append(label)
-    label.append(inputName)
-    label.append(document.createElement(`br`))
-    label.append(inputButton)
+    event.preventDefault();
+    buttonDiv.innerHTML = ``;
+    const form = document.createElement('form');
+    const label = document.createElement(`label`);
+    const inputName = document.createElement(`input`);
+    const inputButton = document.createElement(`input`);
+    form.id = `name-input`;
+    inputName.type = `text`;
+    inputName.placeholder = `Name`;
+    inputButton.type = `submit`;
+    inputButton.value = `Submit`;
+    buttonDiv.append(form);
+    form.append(label);
+    label.append(inputName);
+    label.append(document.createElement(`br`));
+    label.append(inputButton);
 
 // after cicking submit, show personalized page with user info and prices
     form.addEventListener('submit', (event) => {
-        event.preventDefault()
+        event.preventDefault();
         //remove submit button and change experience slightly
-        form.remove()
-        returningUserButton.textContent = `Change User`
-        populateInfo(inputName.value, `Welcome Back`)
-   }) 
-})
+        form.remove();
+        returningUserButton.textContent = `Change User`;
+        populateInfo(inputName.value, `Welcome Back`);
+   });
+});
 
 // Allow New User to create profile
-const newUserButton = document.querySelector(`#new-user-button`)
+const newUserButton = document.querySelector(`#new-user-button`);
 newUserButton.addEventListener(`click`, (event) => {
-    event.preventDefault()
+    event.preventDefault();
     buttonDiv.innerHTML = ``;
-    const form = document.createElement('form')
-    const label = document.createElement(`label`)
-    const inputName = document.createElement(`input`)
-    const inputPic = document.createElement(`input`)
-    const inputShow = document.createElement(`input`)
-    const inputPrice = document.createElement(`input`)
-    const inputButtonNewUser = document.createElement(`input`)
-    const br = document.createElement(`br`)
-    form.id = `name-input`
-    inputName.type = `text`
-    inputPic.type = `text`
-    inputShow.type = `text`
-    inputPrice.type = `text`
-    inputName.placeholder = `Name`
-    inputPic.placeholder = `Profile Pic URL`
-    inputShow.placeholder = `Name of Show`
-    inputPrice.placeholder = `Price`
-    inputButtonNewUser.type = `submit`
-    inputButtonNewUser.value = `Submit`
-    buttonDiv.append(form)
-    form.append(label)
-    label.append(inputName)
-    label.append(inputPic)
-    label.append(inputShow)
-    label.append(inputPrice)
-    label.append(br)
-    label.append(inputButtonNewUser)
+    const form = document.createElement('form');
+    const label = document.createElement(`label`);
+    const inputName = document.createElement(`input`);
+    const inputPic = document.createElement(`input`);
+    const inputShow = document.createElement(`input`);
+    const inputPrice = document.createElement(`input`);
+    const inputButtonNewUser = document.createElement(`input`);
+    const br = document.createElement(`br`);
+    form.id = `name-input`;
+    inputName.type = `text`;
+    inputPic.type = `text`;
+    inputShow.type = `text`;
+    inputPrice.type = `text`;
+    inputName.placeholder = `Name`;
+    inputPic.placeholder = `Profile Pic URL`;
+    inputShow.placeholder = `Name of Show`;
+    inputPrice.placeholder = `Price`;
+    inputButtonNewUser.type = `submit`;
+    inputButtonNewUser.value = `Submit`;
+    buttonDiv.append(form);
+    form.append(label);
+    label.append(inputName);
+    label.append(inputPic);
+    label.append(inputShow);
+    label.append(inputPrice);
+    label.append(br);
+    label.append(inputButtonNewUser);
 
     // POST submitted data
     form.addEventListener(`submit`, (event) => {
-        event.preventDefault()
+        event.preventDefault();
         fetch(`http://localhost:3000/people`, {
             method: `POST`,
             headers: {
@@ -99,9 +99,9 @@ newUserButton.addEventListener(`click`, (event) => {
         })
         .then(response => response.json())
         .then(newPerson => {
-            populateInfo(newPerson.name, `Thanks for joining`)
-        })
-    })
+            populateInfo(newPerson.name, `Thanks for joining`);
+        });
+    });
 
     // Allow user to increase or decrease price preference with arrow keys
     inputPrice.addEventListener(`keydown`, (event) => {
@@ -113,36 +113,36 @@ newUserButton.addEventListener(`click`, (event) => {
             const currentPrice = parseInt(inputPrice.value, 10);
             const newPrice = currentPrice - 1;
             inputPrice.value = newPrice.toFixed(0);
-        }
-    })
-})
+        };
+    });
+});
 // Populate page with curated info
 function populateInfo (name, greeting) {
     // remove everything to make clean slate
     div.innerHTML = ``;
     moreShowsDiv.innerHTML = ``;
     // add person's name
-    const personName = name
-    const firstName = personName.split(` `)[0]
-    const h1 = document.createElement(`h1`)
-    h1.textContent = `${greeting}, ${firstName}!`
-    div.append(h1)
+    const personName = name;
+    const firstName = personName.split(` `)[0];
+    const h1 = document.createElement(`h1`);
+    h1.textContent = `${greeting}, ${firstName}!`;
+    div.append(h1);
     // get person's image and show preferences
     fetch(`http://localhost:3000/people`)
     .then(response => response.json())
     .then(people => {
         people.forEach(person => {
             if (personName === person.name) {
-                const id = person.id
-                const preferences = person.preferences
+                const id = person.id;
+                const preferences = person.preferences;
                 //add person's image
-                const image = document.createElement(`img`)
-                image.src = person.profilePic
-                image.id = `main-image`
-                div.append(image)
-                const paragraphInfoDiv = document.createElement(`div`)
-                paragraphInfoDiv.id = `paragraph-info`
-                div.append(paragraphInfoDiv)
+                const image = document.createElement(`img`);
+                image.src = person.profilePic;
+                image.id = `main-image`;
+                div.append(image);
+                const paragraphInfoDiv = document.createElement(`div`);
+                paragraphInfoDiv.id = `paragraph-info`;
+                div.append(paragraphInfoDiv);
                 
                 //display person's show preferences
                 const showPromises = person.preferences.map(show => {
@@ -157,19 +157,19 @@ function populateInfo (name, greeting) {
                                 const p = document.createElement(`p`);
                                 p.textContent = `${showName}: $${price.price}. There are ${price.seatsAmount} seats available at this price in ${price.seatLocation}.`;
                                 paragraphInfoDiv.append(p);
-                                const newImage = document.createElement(`img`)
+                                const newImage = document.createElement(`img`);
                                 
                                 // Add picture of show on hover
                                 p.addEventListener(`mouseenter`, event => {
-                                    newImage.src = price.picture
-                                    newImage.classList.add(`shows`)
-                                    paragraphInfoDiv.append(newImage)
-                                })
+                                    newImage.src = price.picture;
+                                    newImage.classList.add(`shows`);
+                                    paragraphInfoDiv.append(newImage);
+                                });
                                 
                                 // Remove picture of show when no longer hovering
                                 p.addEventListener(`mouseleave`, event => {
-                                    newImage.remove()
-                                })
+                                    newImage.remove();
+                                });
                             });
                         });
                 });
@@ -181,40 +181,39 @@ function populateInfo (name, greeting) {
                             const p = document.createElement('p');
                             p.textContent = `Unfortunately, there are no tickets for any show at your desired price. Please come back later.`;
                             div.append(p);
-                        }
-                    })
+                        };
+                    });
                 
                 // Display add show button
-                const addShowsButton = document.createElement(`button`)
-                addShowsButton.textContent = `Add Another Show`
-                moreShowsDiv.append(addShowsButton)
+                const addShowsButton = document.createElement(`button`);
+                addShowsButton.textContent = `Add Another Show`;
+                moreShowsDiv.append(addShowsButton);
                 addShowsButton.addEventListener(`click`, (event) => {
-                    event.preventDefault()
-                    addShowsButton.remove()
-                    const newShowsForm = document.createElement('form')
-                    const newShowsLabel = document.createElement(`label`)
-                    const inputNewShow = document.createElement(`input`)
-                    const inputNewPrice = document.createElement(`input`)
-                    const inputButtonNewShow = document.createElement(`input`)
-                    newShowsForm.id = `new-show`
-                    inputNewShow.type = `text`
-                    inputNewPrice.type = `text`
-                    inputNewShow.placeholder = `Name of Show`
-                    inputNewPrice.placeholder = `Price`
-                    inputButtonNewShow.type = `submit`
-                    inputButtonNewShow.value = `Submit New Show`
-                    moreShowsDiv.append(newShowsForm)
-                    newShowsForm.append(newShowsLabel)
-                    newShowsLabel.append(inputNewShow)
-                    newShowsLabel.append(inputNewPrice)
-                    newShowsLabel.append(inputButtonNewShow)
+                    event.preventDefault();
+                    addShowsButton.remove();
+                    const newShowsForm = document.createElement('form');
+                    const newShowsLabel = document.createElement(`label`);
+                    const inputNewShow = document.createElement(`input`);
+                    const inputNewPrice = document.createElement(`input`);
+                    const inputButtonNewShow = document.createElement(`input`);
+                    newShowsForm.id = `new-show`;
+                    inputNewShow.type = `text`;
+                    inputNewPrice.type = `text`;
+                    inputNewShow.placeholder = `Name of Show`;
+                    inputNewPrice.placeholder = `Price`;
+                    inputButtonNewShow.type = `submit`;
+                    inputButtonNewShow.value = `Submit New Show`;
+                    moreShowsDiv.append(newShowsForm);
+                    newShowsForm.append(newShowsLabel);
+                    newShowsLabel.append(inputNewShow);
+                    newShowsLabel.append(inputNewPrice);
+                    newShowsLabel.append(inputButtonNewShow);
                     
                     // allow user to add show preference to their preferences
                     newShowsForm.addEventListener(`submit`, (event) => {
                         event.preventDefault();
                         addShow();
                         function addShow () {
-                            
                             fetch(`http://localhost:3000/people/${id}`, {
                                 method: `PATCH`,
                                 headers: {},
@@ -231,15 +230,15 @@ function populateInfo (name, greeting) {
                             })
                             .then(response => response.json())
                             .then(show => {
-                                populateInfo(personName, `Welcome Back`)
-                            })
-                        }
-                    })
-                })
-            }
+                                populateInfo(personName, `Welcome Back`);
+                            });
+                        };
+                    });
+                });
+            };
         });
-    })
-}
+    });
+};
 
 // // WRITE STUBHUB API CALL
 // const apiKey = `8s4RENhd`;

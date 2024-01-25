@@ -141,6 +141,23 @@
           "maxPrice": 110
         }
       ]
+    },
+    {
+      "id": "3a0c",
+      "name": "Elijah McWiener",
+      "profilePic": "https://assets.fxnetworks.com/cms-next/production/50800f2d-4500-4e53-9a59-c158c711f3c7.jpg",
+      "preferences": [
+        {
+          "show": "Hamilton",
+          "showTechnicalName": "",
+          "maxPrice": 69
+        },
+        {
+          "show": "Six",
+          "showTechnicalName": "",
+          "maxPrice": 100
+        }
+      ]
     }
   ],
   "prices": [
